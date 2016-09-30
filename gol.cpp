@@ -1,6 +1,6 @@
 /*
-			Kevin
-			Bryan
+		Shofiqur Rahman
+
  * CSc103 Project 3: Game of Life
  * See readme.html for details.
  * Please list all references you made use of in order to complete the
@@ -9,10 +9,10 @@
  * NOT mean it is okay to COPY THAT SOURCE.  What you submit here **MUST BE
  * YOUR OWN WORK**.
  * References:
- *
+ * instructions form senior CSC students
  *
  * Finally, please indicate approximately how many hours you spent on this:
- * #hours:
+ * #hours: 2+2+2+1+
  */
 
 #include <cstdio>
