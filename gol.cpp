@@ -1,5 +1,7 @@
 /*
 	Shofiqur Rahman
+	Kevin
+	Bryan
 
  * CSc103 Project 3: Game of Life
  * See readme.html for details.
