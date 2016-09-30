@@ -1,7 +1,7 @@
 /*
 	Shofiqur Rahman
 	Kevin Fuentes
-	Bryan
+	Bryan Gonzalez
 
  * CSc103 Project 3: Game of Life
  * See readme.html for details.
