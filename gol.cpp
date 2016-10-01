@@ -14,7 +14,7 @@
  * instructions form senior CSC students
  *
  * Finally, please indicate approximately how many hours you spent on this:
- * #hours: 2+2+2+1+
+ * #hours: 2+2+2+1+1+
  */
 
 #include <cstdio>
