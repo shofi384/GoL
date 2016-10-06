@@ -96,7 +96,22 @@ int initFromFile(const string& fname)
 }
 
 void mainLoop();
-void dumpState(FILE* f);
+void dumpState(FILE* f)
+{
+	const char* clist =".0\n";
+	for(size_t j = 0; j < jsize; j++){
+		for(size_t i = 0; i < isize; i++){
+			state = nbrCount(i,j, vec2);
+			if(state ==true){
+					c= '0'; }
+			else{
+					c= '.'; }
+
+					wfilename<<fwrite(&c,1,1,f);
+		}
+	}
+}
+
 
 char text[3] = ".O";
 
