@@ -38,8 +38,8 @@ string initfilename = "/tmp/gol-world-current"; /* read initial state from here.
 size_t nbrCount(size_t i, size_t j, const vector<vector<bool> >& g)
 {
 	size_t n = 0;
-	size_t length = 0;
 	size_t width = 0;
+	size_t length = 0;
 	bool left = g[i][(j-1+ width)%width];
 	if (left == true) ++n;
 	bool right = g[i][(j+1)%width];
