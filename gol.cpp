@@ -38,24 +38,25 @@ string initfilename = "/tmp/gol-world-current"; /* read initial state from here.
 size_t nbrCount(size_t i, size_t j, const vector<vector<bool> >& g)
 {
 	size_t n = 0;
-	size_t width = 0;
-	size_t length = 0;
+	size_t length = g.size();
+	size_t width = g[0].size();
+
 	bool left = g[i][(j-1+ width)%width];
-	if (left == true) ++n;
+		if (left == true) ++n;
 	bool right = g[i][(j+1)%width];
-	if (right == true) ++n;
+		if (right == true) ++n;
 	bool upper = g[(i-1+ length)%length][j];
-	if (upper == true) ++n;
+		if (upper == true) ++n;
 	bool lower = g[(i+1)%length][j];
-	if (lower == true) ++n;
+		if (lower == true) ++n;
 	bool upperl = g[(i-1+ length)%length][(j-1+ width)%width];
-	if (upperl == true) ++n;
+		if (upperl == true) ++n;
 	bool lowerl = g[(i+1)%length][(j-1+ width)%width];
-	if (lowerl == true) ++n;
+		if (lowerl == true) ++n;
 	bool upperr = g[(i-1+ length)%length][(j+1)%width];
-	if (upperr == true) ++n;
+		if (upperr == true) ++n;
 	bool lowerr = g[(i+1)%length][(j+1)%width];
-	if (lowerr == true) ++n;
+		if (lowerr == true) ++n;
 	return n;
 }
 void update();
