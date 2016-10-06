@@ -10,8 +10,11 @@
  * instructions from senior CSC students
  *
  * Finally, please indicate approximately how many hours you spent on this:
- * #hours: 2+2+2+1+1+1+
+ * #hours: 2+2+2+1+1+2+
  */
+
+#include <iostream>
+using namespace std;
 
 #include <cstdio>
 #include <stdlib.h> // for exit();
@@ -34,6 +37,8 @@ size_t max_gen = 0; /* if > 0, fast forward to this generation. */
 string wfilename =  "/tmp/gol-world-current"; /* write state here */
 FILE* fworld = 0; /* handle to file wfilename. */
 string initfilename = "/tmp/gol-world-current"; /* read initial state from here. */
+
+vector<vector<bool> > g;
 
 size_t nbrCount(size_t i, size_t j, const vector<vector<bool> >& g)
 {
@@ -59,7 +64,19 @@ size_t nbrCount(size_t i, size_t j, const vector<vector<bool> >& g)
 		if (lowerr == true) ++n;
 	return n;
 }
-void update();
+
+void update()
+{
+	for(size_t i=0; i<g.size(); ++i)
+		{for(size_t j=0; i<g[0].size(); ++j)
+			{if(nbrCount(i, j, g)<2) g[i][j] = '.';
+			else if(nbrCount(i, j, g)>3) g[i][j] = '.';
+			else if(nbrCount(i, j, g)==3) g[i][j] = '0';}}
+		for(size_t i=0; i<g.size(); ++i)
+			{for(size_t j=0; i<g[0].size(); ++j)
+				{cout<<g[i][j];}}
+}
+
 int initFromFile(const string& fname);
 void mainLoop();
 void dumpState(FILE* f);
