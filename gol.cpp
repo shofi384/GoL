@@ -35,7 +35,9 @@ static const char* usage =
 
 size_t max_gen = 0; /* if > 0, fast forward to this generation. */
 string wfilename =  "/tmp/gol-world-current"; /* write state here */
-FILE* fworld = 0; /* handle to file wfilename. */
+
+FILE* fworld = fopen("/tmp/gol-world-current","rb"); /* handle to file wfilename. */
+
 string initfilename = "/tmp/gol-world-current"; /* read initial state from here. */
 
 vector<vector<bool> > g;
@@ -81,7 +83,18 @@ void update()
 				else if(g[i][j] == false) cout<<".";}}
 }
 
-int initFromFile(const string& fname);
+int initFromFile(const string& fname)
+{
+	char c;
+	for(size_t i=0; i<g.size(); ++i)
+	{
+		for(size_t j=0; i<g[0].size(); ++j)
+		{fread(&c, 1, 1, fworld);
+			g[i][j]=c;}}
+	fclose(fworld);
+	return 0;
+}
+
 void mainLoop();
 void dumpState(FILE* f);
 
