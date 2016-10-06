@@ -71,13 +71,14 @@ void update()
 	{
 		for(size_t j=0; i<g[0].size(); ++j)
 		{
-			if(nbrCount(i, j, g)<2) g[i][j] = '.';
-			else if(nbrCount(i, j, g)>3) g[i][j] = '.';
-			else if(nbrCount(i, j, g)==3) g[i][j] = '0';}}
+			if(nbrCount(i, j, g)<2) g[i][j] = false;
+			else if(nbrCount(i, j, g)>3) g[i][j] = false;
+			else if(nbrCount(i, j, g)==3) g[i][j] = true;}}
 	for(size_t i=0; i<g.size(); ++i)
 		{
 			for(size_t j=0; i<g[0].size(); ++j)
-			{cout<<g[i][j];}}
+			{ if(g[i][j] == true) cout<<"0";
+				else if(g[i][j] == false) cout<<".";}}
 }
 
 int initFromFile(const string& fname);
