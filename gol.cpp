@@ -68,13 +68,16 @@ size_t nbrCount(size_t i, size_t j, const vector<vector<bool> >& g)
 void update()
 {
 	for(size_t i=0; i<g.size(); ++i)
-		{for(size_t j=0; i<g[0].size(); ++j)
-			{if(nbrCount(i, j, g)<2) g[i][j] = '.';
+	{
+		for(size_t j=0; i<g[0].size(); ++j)
+		{
+			if(nbrCount(i, j, g)<2) g[i][j] = '.';
 			else if(nbrCount(i, j, g)>3) g[i][j] = '.';
 			else if(nbrCount(i, j, g)==3) g[i][j] = '0';}}
-		for(size_t i=0; i<g.size(); ++i)
-			{for(size_t j=0; i<g[0].size(); ++j)
-				{cout<<g[i][j];}}
+	for(size_t i=0; i<g.size(); ++i)
+		{
+			for(size_t j=0; i<g[0].size(); ++j)
+			{cout<<g[i][j];}}
 }
 
 int initFromFile(const string& fname);
