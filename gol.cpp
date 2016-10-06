@@ -5,16 +5,12 @@
 
  * CSc103 Project 3: Game of Life
  * See readme.html for details.
- * Please list all references you made use of in order to complete the
- * assignment: your classmates, websites, etc.  Aside from the lecture notes
- * and the book, please list everything.  And remember- citing a source does
- * NOT mean it is okay to COPY THAT SOURCE.  What you submit here **MUST BE
- * YOUR OWN WORK**.
+ * Please list all references you made use of in order to complete the assignment: your classmates, websites, etc.  Aside from the lecture notes and the book, please list everything.  And remember- citing a source does NOT mean it is okay to COPY THAT SOURCE.  What you submit here **MUST BE YOUR OWN WORK**.
  * References:
- * instructions form senior CSC students
+ * instructions from senior CSC students
  *
  * Finally, please indicate approximately how many hours you spent on this:
- * #hours: 2+2+2+1+1+
+ * #hours: 2+2+2+1+1+1+
  */
 
 #include <cstdio>
@@ -39,7 +35,29 @@ string wfilename =  "/tmp/gol-world-current"; /* write state here */
 FILE* fworld = 0; /* handle to file wfilename. */
 string initfilename = "/tmp/gol-world-current"; /* read initial state from here. */
 
-size_t nbrCount(size_t i, size_t j, const vector<vector<bool> >& g);
+size_t nbrCount(size_t i, size_t j, const vector<vector<bool> >& g)
+{
+	size_t length = 0;
+	size_t width = 0;
+	size_t n = 0;
+	char left = g[i][(j-1+ width)%width];
+	if (left == '0') ++n;
+	char right = g[i][(j+1)%width];
+	if (right == '0') ++n;
+	char upper = g[(i-1+ length)%length][j];
+	if (upper == '0') ++n;
+	char lower = g[(i+1)%length][j];
+	if (lower == '0') ++n;
+	char upperl = g[(i-1+ length)%length][(j-1+ width)%width];
+	if (upperl == '0') ++n;
+	char lowerl = g[(i+1)%length][(j-1+ width)%width];
+	if (lowerl == '0') ++n;
+	char upperr = g[(i-1+ length)%length][(j+1)%width];
+	if (upperr == '0') ++n;
+	char lowerr = g[(i+1)%length][(j+1)%width];
+	if (lowerr == '0') ++n;
+	return n;
+}
 void update();
 int initFromFile(const string& fname);
 void mainLoop();
