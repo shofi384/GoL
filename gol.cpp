@@ -102,6 +102,8 @@ int initFromFile(const string& fname)
 void mainLoop();
 void dumpState(FILE* f)
 {
+	char c;
+	char state;
 	const int jsize = 8;
 	const int isize = 8;
 	const char* clist =".0\n";
