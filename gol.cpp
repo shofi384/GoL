@@ -11,6 +11,7 @@
  *
  * Finally, please indicate approximately how many hours you spent on this:
  * #hours: 2+2+2+1+1+2+
+ #hours: 2+2+2+2
  */
 
 #include <iostream>
@@ -44,6 +45,7 @@ vector<vector<bool> > g;
 
 size_t nbrCount(size_t i, size_t j, const vector<vector<bool> >& g)
 {
+
 	size_t n = 0;
 	size_t length = g.size();
 	size_t width = g[0].size();
@@ -98,6 +100,8 @@ int initFromFile(const string& fname)
 void mainLoop();
 void dumpState(FILE* f)
 {
+	const int jsize = 8;
+	const int isize = 8;
 	const char* clist =".0\n";
 	for(size_t j = 0; j < jsize; j++){
 		for(size_t i = 0; i < isize; i++){
