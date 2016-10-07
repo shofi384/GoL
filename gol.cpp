@@ -26,6 +26,7 @@ using std::vector;
 #include <string>
 using std::string;
 
+
 static const char* usage =
 "Usage: %s [OPTIONS]...\n"
 "Text-based version of Conway's game of life.\n\n"
@@ -100,18 +101,21 @@ int initFromFile(const string& fname)
 void mainLoop();
 void dumpState(FILE* f)
 {
+
+char state;
+	char c;
 	const int jsize = 8;
 	const int isize = 8;
 	const char* clist =".0\n";
 	for(size_t j = 0; j < jsize; j++){
 		for(size_t i = 0; i < isize; i++){
-			state = nbrCount(i,j, vec2);
+			state = nbrCount(i,j,vec2);
 			if(state ==true){
 					c= '0'; }
 			else{
 					c= '.'; }
 
-					wfilename<<fwrite(&c,1,1,f);
+
 		}
 	}
 }
