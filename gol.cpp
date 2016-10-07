@@ -7,7 +7,7 @@
  * See readme.html for details.
  * Please list all references you made use of in order to complete the assignment: your classmates, websites, etc.  Aside from the lecture notes and the book, please list everything.  And remember- citing a source does NOT mean it is okay to COPY THAT SOURCE.  What you submit here **MUST BE YOUR OWN WORK**.
  * References:
- * instructions from senior CSC students
+		Suggesstions and instructions from senior CSC students
  *
  * Finally, please indicate approximately how many hours you spent on this:
  * #hours: 2+2+2+1+1+2+
@@ -42,6 +42,7 @@ FILE* fworld = fopen("/tmp/gol-world-current","rb"); /* handle to file wfilename
 string initfilename = "/tmp/gol-world-current"; /* read initial state from here. */
 
 vector<vector<bool> > g;
+size_t state;
 
 size_t nbrCount(size_t i, size_t j, const vector<vector<bool> >& g)
 {
@@ -92,7 +93,8 @@ int initFromFile(const string& fname)
 	{
 		for(size_t j=0; i<g[0].size(); ++j)
 		{fread(&c, 1, 1, fworld);
-			g[i][j]=c;}}
+			g[i][j]=c;
+			cout<<g[i][j];}}
 	fclose(fworld);
 	return 0;
 }
